@@ -15,6 +15,7 @@ const Customer = () => {
     useEffect(() => {
         GetUserAccess();
         loadcustomer();
+        LoadDetail();
        
     }, []);
 
@@ -52,7 +53,9 @@ const Customer = () => {
             }
         })
     }
-
+    const LoadDetail = (id) => {
+        navigate("/customer/detail/" + id);
+    }
     const handleadd = () => {
         if(haveadd){
         toast.success('added')
@@ -107,6 +110,7 @@ const Customer = () => {
                                         <td>
                                             <button onClick={handleedit} className="btn btn-primary">Edit</button> |
                                             <button onClick={handleremove} className="btn btn-danger">Remove</button>
+                                            <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
                                         </td>
 
                                     </tr>
